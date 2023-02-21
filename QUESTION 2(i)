@@ -1,0 +1,39 @@
+#include <string>
+
+class Person {
+    private:
+        int age;
+        string firstname;
+        string lastname;
+        
+    public:
+        Person(int age,string firstname,string lastname) {
+            this->age = age;
+            this->firstname = firstname;
+            this->lastname = lastname;
+        }
+        
+        int getAge() {
+            return age;
+        }
+        
+        void setAge(int age) {
+            this->age = age;
+        }
+        
+        string getFirstname() {
+            return firstname;
+        }
+        
+        void setFirstname(string firstname) {
+            this->firstname = firstname;
+        }
+        
+       string getLastname() {
+            return lastname;
+        }
+        
+        void setLastname(string lastname) {
+            this->lastname = lastname;
+        }
+};  
