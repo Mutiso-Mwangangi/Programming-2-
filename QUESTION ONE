@@ -1,0 +1,73 @@
+include <iostream>
+#include <string>
+
+using namespace std;
+
+// base class
+class Computer {
+  protected:
+    string name;
+    int memory;
+   int serialnumber;
+  public:
+    void setName(string n) {
+      name = n;
+    }
+    void setMemory(int m) {
+      memory = m;
+    }
+   void setSerialnumber(int s) {
+      serialnumber = s;
+}
+    void printSpecs() {
+      cout << "Name: " << name << endl;
+      cout << "Memory: " << memory << " GB" << endl;
+      cout << "Serialnumber: " << serialnumber<< endl;
+    }
+};
+
+// derived class 1
+class Server : public Computer {
+  private:
+    int numCores;
+  public:
+    void setNumCores(int c) {
+      numCores = c;
+    }
+    void printSpecs() {
+      Computer::printSpecs();
+      cout << "Number of Cores: " << numCores << endl;
+    }
+};
+
+// derived class 2
+class Client : public Computer {
+  private:
+    int  monitorSize;
+  public:
+    void setMonitorSize(int s) {
+      monitorSize = s;
+    }
+    void printSpecs() {
+      Computer::printSpecs();
+      cout << "Monitor Size: " << monitorSize << " inches" << endl;
+    }
+};
+
+int main() {
+  Server myServer;
+  myServer.setName("Server");
+  myServer.setMemory(32);
+  myServer.setNumCores(16);
+  cout << "Server Specs:" << endl;
+  myServer.printSpecs();
+
+  Client myClient;
+  myClient.setName("Client");
+  myClient.setMemory(500);
+  myClient.setMonitorSize(19);
+  cout << "Client Specs:" << endl;
+  myClient.printSpecs();
+
+  return 0;
+}
